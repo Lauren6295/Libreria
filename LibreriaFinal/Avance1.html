@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<script>
+/*Declaracion de variables - Datos a solicitar al usuario.*/
+
+
+/* Declaracion del precio de los libros*/
+let CostoMate = 2000;
+let CostoSociales=5000;
+let CostoFisica=4000;
+
+
+/*Declaracion del subtotal*/
+let Subtotal = 0;
+let descuento= 0;
+let TotalPago= 0;
+
+/*El programa terminara cuando el usuario digite "Q" o "q", declaramos "continuar" para iniciar el ciclo y para romperlo. */
+continuar = true;
+ 
+
+/*Al declarar a "continuar" arriba, este va a tener el valor de true y nos permitira ingresar al while para pedirle los datos al usuario y
+continuar pidiendo informacion hasta que cambiemos el valor de continuar cuando el usuario digite las teclas "Q". */
+
+while (continuar == true){ //Inicio del while
+let nombrecliente=  prompt('Ingrese su nombre');
+let IDcliente=  prompt('Ingrese su ID');
+let Tipocliente=  prompt('Ingrese el tipo de cliente');
+
+
+let CantidadTipolibro= prompt('Ingrese la cantidad de tipos de libros a comprar');
+let Cantidadlibros  = prompt('Ingrese la cantidad de libros');
+let Tipolibros = prompt('Ingrese el tipo de libro');
+
+let opcion = prompt ('Desea continuar? (Digite "Q" o "q" si desea cerrar el programa)');
+
+if (opcion == "Q" || opcion =="q"){ //Inicio del if
+continuar=false;
+console.log ('Gracias por usar nuestro programa');
+}// Fin del if
+
+} //Fin del while
+       </script>
+</body>
+</html>
+

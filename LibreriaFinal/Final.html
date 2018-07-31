@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<script>
+/*Declaracion de variables.*/
+
+/* Declaracion del precio de los libros*/
+let CostoMate = 2000;
+let CostoSociales=5000;
+let CostoFisica=4000;
+
+/*Declaracion del subtotal y descuentos */
+let Subtotal = 0;
+let Descuento= 0;
+let DescuentoAplicado=0;
+let TotalPago= 0;
+let Cantidadlibros = "";
+
+
+/*El programa terminara cuando el usuario digite "Q" o "q", declaramos "continuar" para iniciar el ciclo y para romperlo. */
+let continuar = true;
+ 
+
+/*Al declarar a "continuar" arriba, este va a tener el valor de true y nos permitira ingresar al while para pedirle los datos al usuario y continuar solicitando informacion hasta que cambiemos el valor de continuar cuando el usuario digite las teclas "Q" o "q". */
+
+while (continuar == true){ //Inicio del while
+let nombrecliente=  prompt('Ingrese su nombre');
+let IDcliente=  prompt('Ingrese su ID');
+let Tipocliente=  prompt('Ingrese el tipo de cliente');
+
+
+
+//Declaracion del descuento.
+if(Tipocliente==1){
+Descuento=0.30;
+info="30%";
+}else if (Tipocliente==2){
+Descuento=0.20;
+info="20%";
+}else if (Tipocliente==3){
+Descuento=0.10;
+info="10%";
+}else {
+Descuento=0;
+info = "No tiene descuento";}
+
+
+console.log("El nombre del cliente es: " + nombrecliente);
+console.log("El ID del cliente es: " + IDcliente);
+console.log("El tipo de cliente es nivel :" + Tipocliente);
+console.log("Adquirio los libros y la cantidad de: ");
+
+
+/* Solicitamos la cantidad de tipos de libro para hacer un ciclo y realizar los cobros por cada libro */
+let CantidadTipolibro= prompt('Ingrese la cantidad de tipos de libros a comprar (Solo hay 3 tipos de libro)');
+
+
+//Iniciamos el ciclo 
+for(let i=1; i<= CantidadTipolibro; i++){ //Inicio del for
+let TipoLibros = prompt("Ingrese el tipo de libro: 1: Matematica 2: Sociales 3: Fisica");
+
+let Cantidadlibros  = prompt('Ingrese la cantidad de libros de ese tipo');
+
+
+   if (TipoLibros == 1){ //Inicio del if
+Subtotal += CostoMate * Cantidadlibros;
+let tipo="Matematica";
+ console.log(tipo + " :" + Cantidadlibros);
+   }// Fin del if
+   else if (TipoLibros ==2){
+Subtotal += CostoSociales * Cantidadlibros;
+let tipo="Sociales";
+ console.log(tipo + " :" + Cantidadlibros);
+}
+else if (TipoLibros == 3){
+Subtotal += CostoFisica * Cantidadlibros;
+let tipo="Fisica";
+ console.log(tipo + " :" + Cantidadlibros);
+}
+
+
+
+}//Fin del for
+
+//Aplicacion del descuento. la variable Descuento almacena cuanto descuento tiene el cliente y Descuento aplicado es la q usamos para calcularlo
+DescuentoAplicado= Subtotal * Descuento;
+TotalPago = Subtotal-DescuentoAplicado;
+
+console.log("La cantidad de tipos de libros que compro es de: " + CantidadTipolibro);
+console.log("El subtotal es de: " + Subtotal );
+console.log("El descuento es de: " + info);
+console.log("El total a pagar es de: " + TotalPago);
+
+
+let opcion = prompt ('Desea continuar? (Digite "Q" o "q" si desea cerrar el programa)');
+
+if (opcion == "Q" || opcion =="q"){ //Inicio del if
+continuar=false;
+console.log ('Gracias por usar nuestro programa');
+}// Fin del if
+
+//Limpieza de datos para cuando se ingresa mas de un cliente.
+Subtotal=0;
+Descuento=0;
+TotalPago=0;
+
+} //Fin del while
+       </script>
+</body>
+</html>
+
+

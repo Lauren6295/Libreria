@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<script>
+/*Declaracion de variables - Datos a solicitar al usuario.*/
+
+/* Declaracion del precio de los libros*/
+let CostoMate = 2000;
+let CostoSociales=5000;
+let CostoFisica=4000;
+
+/*Declaracion del subtotal y descuentos */
+let Subtotal = 0;
+let descuento= 0;
+let TotalPago= 0;
+
+
+let libro = "";
+let Cantidadlibros = "";
+let cantidad = "";
+
+/*El programa terminara cuando el usuario digite "Q" o "q", declaramos "continuar" para iniciar el ciclo y para romperlo. */
+continuar = true;
+ 
+
+/*Al declarar a "continuar" arriba, este va a tener el valor de true y nos permitira ingresar al while para pedirle los datos al usuario y
+continuar pidiendo informacion hasta que cambiemos el valor de continuar cuando el usuario digite las teclas "Q". */
+
+while (continuar == true){ //Inicio del while
+let nombrecliente=  prompt('Ingrese su nombre');
+let IDcliente=  prompt('Ingrese su ID');
+let Tipocliente=  prompt('Ingrese el tipo de cliente');
+
+/* Solicitamos la cantidad de tipos de libro para hacer un ciclo y realizar los cobros por cada libro */
+let CantidadTipolibro= prompt('Ingrese la cantidad de tipos de libros a comprar (Solo hay 3 tipos de libro)');
+
+//Iniciamos un ciclo para pedir el tipo de libro y la cantidad de libros de ese tipo.
+for(let i=1; i<= CantidadTipolibro; i++){ //Inicio del for
+let TipoLibros = prompt("Ingrese el tipo de libro: 1: Matematica 2: Sociales 3: Fisica");
+
+let Cantidadlibros  = prompt('Ingrese la cantidad de libros de ese tipo');
+
+   if (TipoLibros == 1){ //Inicio del if
+Subtotal += CostoMate * Cantidadlibros;
+ libro+= " Matematica";  //almacena el tipo de libro
+ cantidad += Cantidadlibros + "-";
+   }// Fin del if
+   else if (TipoLibros ==2){
+Subtotal += CostoSociales * Cantidadlibros;
+ libro += " Sociales"; //almacena el tipo de libro
+ cantidad += Cantidadlibros + "-";
+}
+else if (TipoLibros == 3){
+Subtotal += CostoFisica * Cantidadlibros;
+ libro += " Fisica"; //almacena el tipo de libro
+ cantidad += Cantidadlibros + "-";
+}
+
+
+}//Fin del for
+
+console.log("La cantidad de tipos de libros que compro es de: " + CantidadTipolibro);
+console.log("El tipo de libro escogido es :" + libro );
+console.log("La cantidad de libros escogidos es: " + cantidad );
+console.log("El subtotal es de: " + Subtotal );
+
+
+let opcion = prompt ('Desea continuar? (Digite "Q" o "q" si desea cerrar el programa)');
+
+if (opcion == "Q" || opcion =="q"){ //Inicio del if
+continuar=false;
+console.log ('Gracias por usar nuestro programa');
+}// Fin del if
+
+} //Fin del while
+       </script>
+</body>
+</html>
+
